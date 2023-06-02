@@ -12,9 +12,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @RestController
 @RequestMapping("/punkty")
 public class PunktyController {
-    private List<String> users=new CopyOnWriteArrayList<>();
-    private StudentService service = new StudentService();
-
+    //private List<String> users=new CopyOnWriteArrayList<>();
+    private StudentService service = new StudentService(repozytory);
+    public PunktyController(StudentService service) {
+        this.service = service;
+    }
 //    @RequestMapping(value = "/users",method = RequestMethod.GET)
 //    public List<String> getUsers() {
 //        return this.users;
